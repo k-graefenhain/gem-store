@@ -1,0 +1,55 @@
+<!DOCTYPE htlm>
+<html ng-app="store">
+	<head>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css" />
+	</head>
+	<body ng-controller="StoreController as store">
+		<script type="text/javascript" src="lib/angular.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+
+		<header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center"> - an Angular store - </h2>
+    </header>
+
+    <div class="list-group-item" ng-repeat="product in store.products">
+      <h3>
+        {{product.name}}
+        <em class="pull-right">{{product.price | currency}}</em>
+      </h3>
+
+			<!-- Image Gallery  -->
+      <div class='gallery' ng-show="product.images.length" ng-controller="GalleryController as gallery">
+        <img ng-src="{{product.images[gallery.current]}}" />
+       <!--  <ul class="list-inline thumbs">
+          <li class="thumbnail" ng-repeat="image in product.images">
+            <img ng-src="{{image}}" />
+          </li>
+        </ul> -->
+      </div>
+			<button ng-show="product.canPurchase"> Add to Cart </button>
+
+			<!-- Tabs -->
+			<section ng-controller="PanelController as panel">
+				<ul class="nav nav-pills">
+					<li ng-class="{ active: panel.isSelected(1)}"> <a href ng-click="panel.selectTab(1)">Description</a> </li>
+					<li ng-class="{ active: panel.isSelected(2)}"> <a href ng-click="panel.selectTab(2)">Specifications</a> </li>
+					<li ng-class="{ active: panel.isSelected(3)}"> <a href ng-click="panel.selectTab(3)">Reviews</a> </li>
+				</ul>
+				<div class="panel" ng-show="panel.isSelected(1)">
+					<h4>Description</h4>
+					<p> {{product.description}} </p>
+				</div>
+				<div class="panel" ng-show="panel.isSelected(2)">
+					<h4>Specifications</h4>
+					<blockquote>Shine: {{product.shine}} </blockquote>
+				</div>
+				<div class="panel" ng-show="panel.isSelected(3)">
+					<h4>Reviews</h4>
+					<blockquote>None yet</blockquote>
+				</div>
+			</section>
+
+		</div>
+	</body>
+</html>
