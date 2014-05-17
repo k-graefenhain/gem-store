@@ -5,24 +5,24 @@
 		this.products = gems;
 	});
 
-	app.controller('PanelController', function(){
-		this.tab = 1;
+	// app.controller('PanelController', function(){
+	// 	this.tab = 1;
 
-		this.selectTab = function(setTab) {
-			this.tab = setTab;
-		};
+	// 	this.selectTab = function(setTab) {
+	// 		this.tab = setTab;
+	// 	};
 
-		this.isSelected = function(checkTab) {
-			return this.tab === checkTab;
-		};
-	});
+	// 	this.isSelected = function(checkTab) {
+	// 		return this.tab === checkTab;
+	// 	};
+	// });
 
-  app.controller('GalleryController', function(){
-    this.current = 0;
-    this.setCurrent = function(newGallery){
-      this.current = newGallery || 0;
-    };
-  });
+  // app.controller('GalleryController', function(){
+  //   this.current = 0;
+  //   this.setCurrent = function(newGallery){
+  //     this.current = newGallery || 0;
+  //   };
+  // });
 
   app.controller('ReviewController', function(){
   	this.review = {};
@@ -32,6 +32,46 @@
   		product.reviews.push(this.review);
   		this.review = {};
   	};
+  });
+
+  app.directive('productTitle', function(){
+  	return {
+  		restrict: 'E',
+  		templateUrl: "product-title.html"
+  	};
+  });
+
+  app.directive('productPanels', function(){
+  	return {
+  		restrict: 'E',
+  		templateUrl: "product-panels.html", 
+  		controller: function() {
+  			this.tab = 1;
+
+				this.selectTab = function(setTab) {
+					this.tab = setTab;
+				};
+
+				this.isSelected = function(checkTab) {
+					return this.tab === checkTab;
+				};
+		  },
+		  controllerAs: 'panel'
+		};
+  });
+
+  app.directive("productGallery", function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'product-gallery.html', 
+      controller: function (){
+        this.current = 0;
+    		this.setCurrent = function(imageNumber){
+      		this.current = imageNumber || 0;
+    		};
+      },
+      controllerAs: 'gallery'
+    };
   });
 
   var gems = [
