@@ -1,12 +1,11 @@
 gem-store
 =========
 
-my first angular project
-
-
-I did the Codeschool course "Shaping up with Angular.js" and learned about: 
+I did the Codeschool course "Shaping up with Angular.js" and learned: 
 
 * Angular is a client-side Javascript framework for adding interactivity to HTML
+
+## Basics:
 
 * Directives: HTML annotations that trigger Javascript behaviors
 * Modules: Where our application components live
@@ -14,7 +13,7 @@ I did the Codeschool course "Shaping up with Angular.js" and learned about:
 * Expressions: How values get displayed within the page
 
 
-Built-in Directives:
+## Built-in Directives:
 * ng-app: to attach the application model to the page
 * ng-controller: to attach a controller function to the page
 * ng-show / ng-hide: display / hide a section based on an expression
@@ -22,5 +21,8 @@ Built-in Directives:
 * ng-src: for images
 * ng-click, ng-class
 * ng-model: binds the form element value to the property
+* ng-options, ng-submit
 
-* built-in attributes e.g. form.$valid
+
+## Built-in attributes: 
+* e.g. form.$valid
