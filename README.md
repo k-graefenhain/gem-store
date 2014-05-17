@@ -1,9 +1,7 @@
 gem-store
 =========
 
-I did the Codeschool course "Shaping up with Angular.js" and learned: 
-
-* Angular is a client-side Javascript framework for adding interactivity to HTML
+Angular is a client-side Javascript framework for adding interactivity to HTML. To get to know Angular, I did the Codeschool course "Shaping up with Angular.js". Here is some basic information:
 
 ## Basics:
 
